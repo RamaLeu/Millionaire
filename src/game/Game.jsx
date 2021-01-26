@@ -8,7 +8,7 @@ import dyingSound from '../resources/sound/dyingSound.mp3'
 
 
 
-function Game(target){
+function Game(target, victory){
     let [skid, setSkid] = useState(0);
     let [score, setScore] =useState(0);
     let [lights, setLights] =useState(15);
@@ -26,12 +26,10 @@ function Game(target){
 
     const gameOver = () => {
       target.target()
-      /*pls insert image and audio cus i have no fucking clue how to do that in to the game over screen ty
-      <img src = {dyingAnim}/>
-      <audio id="audio" autoplay loop onloadeddata="setHalfVolume()">
-      <source src= {dyingSound}>
-      </audio> */
-       
+    }
+
+    const gameWon = () => {
+      target.victory()
     }
 
     const setHalfVolume = () => {
@@ -54,6 +52,9 @@ function Game(target){
       if (buttonid === true){
         let lightCount=lights - 1;
         setLights(lightCount);
+        if (skid==14){
+          gameWon()
+        }
         const next = skid + 1;
         const nextScore = score + 1;
         setScore(nextScore);

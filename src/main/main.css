@@ -23,16 +23,19 @@ button{
     height: 30px;
 }
 p{
-    font-size: large;
+    font-size: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 250px;
+    justify-content: center;
     background-color: rgba(163, 163, 255, 0.438);
 }
 #area{
     display: flex;
     justify-self: center;
     align-self: center;
+}
+.victoryText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
