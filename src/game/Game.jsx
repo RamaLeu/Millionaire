@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import data from '../data/Data'
 import './game.css'
-import Main from '../main/Main'
-import dyingAnim from '../resources/images/dyingAnim.gif'
-import dyingSound from '../resources/sound/dyingSound.mp3'
+import drumRoll from '../resources/sound/drum.mp3'
+import correctAnsw from '../resources/sound/correct.mp3'
 
 
 
@@ -12,6 +11,7 @@ function Game(target, victory){
     let [skid, setSkid] = useState(0);
     let [score, setScore] =useState(0);
     let [lights, setLights] =useState(15);
+    let lightCount= 15;
     const createLights = () => {
       let table = []
       for (let i = 0; i < lights; i++) {
@@ -38,6 +38,25 @@ function Game(target, victory){
     }
 
 
+    const correct = () => {
+      lightCount=lights - 1;
+
+      setTimeout(() => {
+      return(
+        <audio id="audio1" autoPlay="autoplay">
+        <source src= {drumRoll} type="audio/mp3"/>
+        <source src = {correctAnsw} type="audio/mp3"/>
+          
+          
+        </audio>
+
+
+      )
+    },500)
+
+
+    }
+
     const createShines = () => {
       let table = []
       for (let i = 1; i <= score; i++) {
@@ -50,7 +69,7 @@ function Game(target, victory){
 
     const nextQuestion = (buttonid) => {
       if (buttonid === true){
-        let lightCount=lights - 1;
+        correct();
         setLights(lightCount);
         if (skid==14){
           gameWon()

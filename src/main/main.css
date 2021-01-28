@@ -33,9 +33,22 @@ p{
     display: flex;
     justify-self: center;
     align-self: center;
+    height: 100%;
+    width: 100%;
 }
 .victoryText{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.startText{
+    display: flex;
+    flex-direction: column;
+    background-image: url("https://i.imgur.com/m1sdDPI.jpg");
+    background-size: 800px 500px;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 750px;
+    opacity: 0.95;
 }

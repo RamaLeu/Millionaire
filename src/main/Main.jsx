@@ -5,6 +5,7 @@ import Game from '../game/Game'
 import dyingAnim from '../resources/images/dyingAnim.gif'
 import dyingSound from '../resources/sound/dyingSound.mp3'
 import video from '../resources/video/video.mp4'
+import titleSound from '../resources/sound/intro.mp3'
 
 
 
@@ -33,15 +34,18 @@ function Main(){
 
 
 
+
   return(
-    <div id="area">
-      {start === true &&
-      <div id="startBox">
-        <div className="victoryText">
+    <div className="mainThing">
+    {start === true &&
+        <div className="startText">
         <p><h2>WHO WANTS TO BE A WEB DEVELOPER</h2></p>
-        </div>
+        <audio className="audio" autoPlay="autoplay">
+        <source src= {titleSound} type="audio/mpeg"/>
+        </audio>
         <button onClick={() => startGame()} classname="startButton">Start</button>
-      </div>}
+        </div>}
+    <div id="area">
       {start === false && gameState === false && gameVictory===false && <Game target={gameOver} victory={winGame}/>}
       {gameState ===true && <div>
       <img src = {dyingAnim}/>
@@ -57,6 +61,7 @@ function Main(){
         <p><h1>YOU WIN</h1></p>
         </div>
         </div>}
+    </div>
     </div>
   )
 }
